@@ -31,7 +31,7 @@
 
 #### Подключение
 
-
+![Подключение](https://github.com/georotor/bridge_zigbee_433/blob/main/ptvo/smartrf04eb-pinout.png?raw=true)
 
 #### CC-Tool
 
