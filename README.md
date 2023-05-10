@@ -33,6 +33,14 @@
 
 ![Подключение](https://github.com/georotor/bridge_zigbee_433/blob/main/ptvo/smartrf04eb-pinout.png?raw=true)
 
+| SmartRF04EB | CC2530 |
+| :---------: | :----: |
+|      1      |  GND   |
+|      3      |  P22   |
+|      4      |  P21   |
+|      7      |  RST   |
+|      9      |  VCC   |
+
 #### CC-Tool
 
 Для заливки используется cc-tool (https://github.com/dashesy/cc-tool).
@@ -62,3 +70,37 @@ sudo make install
 sudo cc-tool -e -w ptvo/ptvo-dht22-uart.hex
 ```
 
+### Подключение
+
+| CC2530 | Wemos D1 mini | AM2302 |
+| :----: | :-----------: | :----: |
+|  P15   |               |  Out   |
+|  P02   |      TX       |        |
+|  P03   |      RX       |        |
+
+Питание (3.3V) и земля по месту.
+
+
+
+## Wemos D1 mini
+
+Модуль используется в качестве моста между CC1101 и CC2530.
+
+### Прошивка
+
+В прошивке (wemos/cc1101.ino) реализован простейший прием данных с CC1101 и отправка их в UART для CC2530.
+
+### Подключение
+
+| Wemos D1 mini | E07-M1101D (CC1101) | CC2530 |
+| :-----------: | :-----------------: | :----: |
+|      D1       |        GDO0         |        |
+|      D2       |        GDO2         |        |
+|      D5       |         SCK         |        |
+|      D6       |        MISO         |        |
+|      D7       |        MOSI         |        |
+|      D8       |         CSN         |        |
+|      RX       |                     |  P03   |
+|      TX       |                     |  P02   |
+
+Питание (3.3V) и земля по месту.
